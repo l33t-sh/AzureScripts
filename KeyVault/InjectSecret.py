@@ -6,12 +6,11 @@ from azure.core.exceptions import AzureError
 from optparse import OptionParser
 
 parser = OptionParser()
-parser.add_option("--vault_url", dest="vault_url", help="")
-parser.add_option("--secret_name", dest="secret_name", help="")
-parser.add_option("--path_to_file", dest="path_to_file", help="")
+parser.add_option("--vault_url", dest="vault_url", help="Please specify the Azure KeyVault endpoint")
+parser.add_option("--secret_name", dest="secret_name", help="Please specify the secret name")
+parser.add_option("--path_to_file", dest="path_to_file", help="Please specify a path to the file that needs to be injected as secret")
 (options, args) = parser.parse_args()
 
-# Read file contents and encode in Base64
 try:
     with open(options.path_to_file, 'rb') as file:
         file_content = file.read()
