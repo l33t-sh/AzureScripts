@@ -8,7 +8,6 @@ from optparse import OptionParser
 
 
 parser = OptionParser()
-parser.add_option("--vault_url", dest="vault_url", help="Please specify the Azure KeyVault endpoint")
 parser.add_option("--path_to_file", dest="path_to_file", help="Please specify a path to the file.yml that needs to be injected as secret")
 (options, args) = parser.parse_args()
 
@@ -24,11 +23,11 @@ except Exception as ex:
     print(ex)
 
 credential = AzureCliCredential()
-secret_client = SecretClient(vault_url=options.vault_url, credential=credential)
 
 if __name__ == '__main__':
     for secret in local_config['secrets']:
         try:
+            secret_client = SecretClient(vault_url=secret['endpoint'], credential=credential)
             enc_secret = secret_client.set_secret(secret['name'], base64.b64encode(secret['value'].encode()).decode())
             print(f"{enc_secret.properties.version} | {secret['name']} [✓]")
         except AzureError as ex:

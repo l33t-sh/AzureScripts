@@ -1,0 +1,20 @@
+secrets:
+  - name: "myKeyVaultSecret01"
+    endpoint: "https://exampleKeyVault01.vault.azure.net/"
+    value: |
+      {
+       "Key": "Value01"
+      }
+  - name: "myKeyVaultSecret02"
+    endpoint: "https://exampleKeyVault01.vault.azure.net/"
+    value: "TestSecret"
+  - name: "myKeyVaultSecret02"
+    endpoint: "https://exampleKeyVault02.vault.azure.net/"
+    value: "TestSecret"
+  - name: "myKeyVaultSecret02"
+    endpoint: "https://exampleKeyVault02.vault.azure.net/"
+    value: |
+      {
+       "Key": "Value02",
+       "Key": "Value03"
+      }
