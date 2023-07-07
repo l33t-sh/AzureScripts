@@ -1,4 +1,9 @@
-# KeyVault | InjectSecret 
+# Azure KeyVault | InjectSecret 
+
+⚠️ ***Keep in mind you have to be authorized to access KeyVault at runtime (either by azcli, exporting env variables etc ...)*** ⚠️
+
+<br>
+
 
 This script is a solution for a CICD pipelines to inject multiple secrets into multiple keyvaults at runtime.
 
